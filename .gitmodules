@@ -2,10 +2,6 @@
 	path = build/libvpx
 	url = https://chromium.googlesource.com/webm/libvpx
 	ignore = dirty
-[submodule "build/opus"]
-	path = build/opus
-	url = https://github.com/xiph/opus.git
-	ignore = dirty
 [submodule "build/ffmpeg-next"]
 	path = build/ffmpeg-next
 	url = https://git.ffmpeg.org/ffmpeg.git

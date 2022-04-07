@@ -1,13 +1,13 @@
 {
   "name": "ffmpeg4js",
-  "version": "5.0.14",
+  "version": "5.0.18",
   "description": "Port of FFmpeg with Emscripten",
-  "main": "ffmpeg.js",
-  "scripts": {},
-  "types": "index.d.ts",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "tsc"
+  },
   "files": [
-    "*.js",
-    "*.ts"
+    "src/**/*"
   ],
   "repository": {
     "type": "git",
@@ -22,5 +22,7 @@
   "author": "Aloento & Kagami Hiiragi",
   "license": "LGPL-2.1+",
   "homepage": "https://github.com/Aloento/FFmpeg4JS#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
 }

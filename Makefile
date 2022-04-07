@@ -3,50 +3,61 @@ POST_JS_SYNC = build/post-sync.js
 POST_JS_WORKER = build/post-worker.js
 
 COMMON_BSFS = vp9_superframe
-COMMON_FILTERS = aresample scale crop overlay hstack vstack
-COMMON_DEMUXERS = matroska ogg mov mp3 wav image2 concat
-COMMON_DECODERS = hevc vp8 vp9 h264 vorbis opus mp3 aac pcm_s16le pcm_s24le pcm_s32le pcm_s64le flac jpeg png webp
 
-NEXT_MUXERS = webm ogg null
-NEXT_ENCODERS = libvpx_vp9 libopus vorbis
+COMMON_FILTERS = aresample scale crop overlay hstack vstack
+
+COMMON_DEMUXERS = matroska mov avi h264 hevc av1 \
+	mp3 wav ogg aac flac \
+	image2 concat \
+	s16le s24le f32le f64le
+
+COMMON_DECODERS = av1 vvc hevc vp9 vp8 h264 \
+	flac vorbis opus aac mp3 \
+	png webp jpeg psd \
+	pcm_f32le pcm_f64le \
+	pcm_s16le pcm_s24le 
+
+NEXT_MUXERS = webm ogg opus null
+NEXT_ENCODERS = libvpx_vp9 vorbis opus
+
 FFMPEG_NEXT_BC = build/ffmpeg-next/ffmpeg.bc
-FFMPEG_NEXT_PC_PATH = ../opus/dist/lib/pkgconfig
-WEBM_SHARED_DEPS = \
-	build/opus/dist/lib/libopus.so \
-	build/libvpx/dist/lib/libvpx.so
+# FFMPEG_NEXT_PC_PATH = ../opus/dist/lib/pkgconfig
+
+NEXT_SHARED_DEPS = build/libvpx/dist/lib/libvpx.so
+# build/opus/dist/lib/libopus.so
 
 all: ffmpeg.js
 
-clean: clean-js \
-	clean-opus clean-libvpx clean-ffmpeg-next
+clean: clean-js clean-libvpx clean-ffmpeg-next
+
 clean-js:
-	rm -f ffmpeg*.js
-clean-opus:
-	cd build/opus && git clean -xdf
+	rm -f src/ffmpeg*.js
+# clean-opus:
+# 	cd build/opus && git clean -xdf
 clean-libvpx:
 	cd build/libvpx && git clean -xdf
 clean-ffmpeg-next:
 	cd build/ffmpeg-next && git clean -xdf
 
-build/opus/configure:
-	cd build/opus && ./autogen.sh
+# build/opus/configure:
+# 	cd build/opus && ./autogen.sh
 
-build/opus/dist/lib/libopus.so: build/opus/configure
-	cd build/opus && \
-	emconfigure ./configure \
-		CFLAGS=-O3 \
-		--prefix="$$(pwd)/dist" \
-		--disable-static \
-		--disable-doc \
-		--disable-extra-programs \
-		--disable-asm \
-		--disable-rtcd \
-		--disable-intrinsics \
-		--disable-hardening \
-		--disable-stack-protector \
-		&& \
-	emmake make -j && \
-	emmake make install
+# build/opus/dist/lib/libopus.so: build/opus/configure
+# 	cd build/opus && \
+# 	emconfigure ./configure \
+# 		CFLAGS=-O3 \
+# 		--prefix="$$(pwd)/dist" \
+# 		--disable-static \
+# 		--disable-doc \
+# 		--disable-extra-programs \
+# 		--disable-asm \
+# 		--disable-rtcd \
+# 		--disable-intrinsics \
+# 		--disable-hardening \
+# 		--disable-stack-protector \
+# 		&& \
+# 	emmake make -j && \
+# 	emmake make install
 
 build/libvpx/dist/lib/libvpx.so:
 	cd build/libvpx && \
@@ -114,7 +125,7 @@ FFMPEG_COMMON_ARGS = \
 	--disable-xlib \
 	--enable-zlib
 
-build/ffmpeg-next/ffmpeg.bc: $(WEBM_SHARED_DEPS)
+build/ffmpeg-next/ffmpeg.bc: $(NEXT_SHARED_DEPS)
 	cd build/ffmpeg-next && \
 	EM_PKG_CONFIG_PATH=$(FFMPEG_NEXT_PC_PATH) emconfigure ./configure \
 		$(FFMPEG_COMMON_ARGS) \
@@ -144,11 +155,11 @@ EMCC_COMMON_ARGS = \
 	-o $@
 
 # ffmpeg-sync.js: $(FFMPEG_NEXT_BC) $(PRE_JS) $(POST_JS_SYNC)
-# 	emcc $(FFMPEG_NEXT_BC) $(WEBM_SHARED_DEPS) \
+# 	emcc $(FFMPEG_NEXT_BC) $(NEXT_SHARED_DEPS) \
 # 		--post-js $(POST_JS_SYNC) \
 # 		$(EMCC_COMMON_ARGS)
 
 ffmpeg.js: $(FFMPEG_NEXT_BC) $(PRE_JS) $(POST_JS_WORKER)
-	emcc $(FFMPEG_NEXT_BC) $(WEBM_SHARED_DEPS) \
+	emcc $(FFMPEG_NEXT_BC) $(NEXT_SHARED_DEPS) \
 		--post-js $(POST_JS_WORKER) \
 		$(EMCC_COMMON_ARGS)

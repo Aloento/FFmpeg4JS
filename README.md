@@ -4,30 +4,25 @@ This library provides FFmpeg builds ported to JavaScript using [Emscripten proje
 
 ## Builds
 
-### Next (Default)
+### Modern (Default)
 
 #### Decoders
 
 | Video | Image | Audio  | RAW       |
 | ----- | ----- | ------ | --------- |
-| hevc  | jpeg  | vorbis | pcm_s16le |
-| vp8   | png   | opus   | pcm_s24le |
-| vp9   | webp  | mp3    | pcm_s32le |
-| h264  |       | aac    | pcm_s64le |
-|       |       | flac   |           |
+| av1   | png   | flac   | pcm_f64le |
+| vvc   | webp  | vorbis | pcm_f32le |
+| hevc  | jpeg  | opus   | pcm_s24le |
+| vp9   | psd   | aac    | pcm_s16le |
+| vp8   |       | mp3    |           |
+| h264  |       |        |
 
 #### Encoders
 
-| Video      | Audio   |
-| ---------- | ------- |
-| libvpx_vp9 | libopus |
-|            | vorbis  |
-
-### MP4
-
-#### Decoders
-
-#### Encoders
+| Video      | Audio  |
+| ---------- | ------ |
+| libvpx_vp9 | opus   |
+|            | vorbis |
 
 ## Version scheme
 
@@ -37,7 +32,7 @@ FFmpeg4JS uses the following version pattern: `major.minor.ddd`, where:
 - **minor** - FFmpeg's minor version.
 - **ddd** - FFmpeg4JS patch version.
 
-Current `5.0.14`
+Current `5.0.18`
 
 ## Usage
 
@@ -45,7 +40,7 @@ See documentation on [Module object](https://emscripten.org/docs/api_reference/m
 
 ### Via Web Worker
 
-ffmpeg.js also provides wrapper for main function with Web Worker interface to offload the work to a different process. Worker sends the following messages:
+FFmpeg4JS provides wrapper for main function with Web Worker interface to offload the work to a different process. Worker sends the following messages:
 
 - `{type: "ready"}` - Worker loaded and ready to accept commands.
 - `{type: "run"}` - Worker started the job.
@@ -61,6 +56,8 @@ You can send the following messages to the worker:
 - `{type: "run", ...opts}` - Start new job with provided options.
 
 ```ts
+import NewFFmepg from "ffmpeg4js";
+
 export default function ExeFFAsync(
   from: string,
   ext: string,
@@ -68,7 +65,8 @@ export default function ExeFFAsync(
   buffer: Uint8Array
 ): Promise<Uint8Array> {
   return new Promise((resolve, reject) => {
-    const w = new Worker(new URL("ffmpeg4js", import.meta.url));
+    const w = NewFFmepg();
+
     w.onmessage = function (e) {
       const data = e.data;
       const msg = data.data;
@@ -80,19 +78,24 @@ export default function ExeFFAsync(
             arguments: args,
           });
           break;
+
         case "run":
           break;
+
         case "stdout":
         case "stderr":
           console.info(msg);
           break;
+
         case "abort":
         case "error":
           console.warn(msg);
           break;
+
         case "exit":
           console.info(msg);
           break;
+
         case "done":
           const out = msg.MEMFS.find((x) => x.name === `${from}.${ext}`);
           if (!out) return reject(`${from}.${ext}`);
@@ -103,27 +106,6 @@ export default function ExeFFAsync(
     };
   });
 }
-```
-
-### Sync run
-
-**Current Not Supported**
-
-```ts
-import ffmpeg from "ffmpeg4js";
-
-ffmpeg({
-  arguments: ["-version"],
-  print: function (data) {
-    console.log(data);
-  },
-  printErr: function (data) {
-    console.log(data);
-  },
-  onExit: function (code) {
-    console.log("Process exited with code " + code);
-  },
-});
 ```
 
 ### Files
@@ -198,7 +180,3 @@ cd ~
 git clone --depth 1 https://github.com/Aloento/FFmpeg4JS --recurse-submodules && cd FFmpeg4JS
 make
 ```
-
-## License
-
-Own library code licensed under LGPL 2.1 or later.

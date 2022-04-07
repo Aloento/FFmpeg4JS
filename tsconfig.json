@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "esnext",
+      "declaration": true,
+      "outDir": "./dist",
+      "strict": true,
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+    },
+    "include": ["src", "src/ffmpeg.js"],
+    "exclude": ["node_modules"]
+  }

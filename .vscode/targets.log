@@ -1,0 +1,412 @@
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Thu Apr  7 19:04:12 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 7)
+COMMON_DEMUXERS = matroska ogg mov mp3 wav image2 concat
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up:VSCODE_CLI_REMOTE_ENV/w:ELECTRON_RUN_AS_NODE/w:WT_SESSION:BASH_ENV/u:WT_PROFILE_ID
+# default
+.SHELLFLAGS := -c
+# environment
+VSCODE_AGENT_FOLDER = /home/aloento/.vscode-server
+# environment
+VSCODE_LOG_NATIVE = false
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/aloento/FFmpeg4JS
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"zh-cn","availableLanguages":{"*":"zh-cn"},"_languagePackId":"85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn","_translationsConfigFile":"/home/aloento/.vscode-server/data/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn/tcf.json","_cacheRoot":"/home/aloento/.vscode-server/data/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn","_resolvedLanguagePackCoreLocation":"/home/aloento/.vscode-server/data/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn/899d46d82c4c95423fb7e10e68eba52050e30ba3","_corruptedFile":"/home/aloento/.vscode-server/data/clp/85dc8b33bfa057e31dfd84e9a10f67e1.zh-cn/corrupted.info","_languagePackSupport":true}
+# environment
+_ = /home/aloento/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/node
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+ 
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# makefile (from 'Makefile', line 134)
+EMCC_COMMON_ARGS = -Oz --closure 1 --memory-init-file 0 -s WASM=0 -s WASM_ASYNC_COMPILATION=0 -s ASSERTIONS=0 -s EXIT_RUNTIME=1 -s NODEJS_CATCH_EXIT=0 -s NODEJS_CATCH_REJECTION=0 -s ALLOW_MEMORY_GROWTH=1 -lnodefs.js -lworkerfs.js --pre-js $(PRE_JS) -o $@
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/SoarT/scoop/apps/vscode/1.63.2
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/aloento/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64_win/compiler:/mnt/c/Program Files (x86)/Razer Chroma SDK/bin:/mnt/c/Program Files/Razer Chroma SDK/bin:/mnt/c/Program Files (x86)/Razer/ChromaBroadcast/bin:/mnt/c/Program Files/Razer/ChromaBroadcast/bin:/mnt/c/Program Files (x86)/Common Files/Intel/Shared Libraries/redist/intel64/compiler:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Windows/system32/config/systemprofile/AppData/Local/Microsoft/WindowsApps:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/120/Tools/Binn/:/mnt/c/Program Files/Common Files/Autodesk Shared/:/mnt/c/Program Files/Common Files/Autodesk Shared/Advance/:/mnt/c/Program Files (x86)/Common Files/Autodesk Shared/Advance/:/mnt/c/Program Files (x86)/NetSarang/Xftp 7/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/140/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Users/SoarT/scoop/apps/openjdk/current/bin:/mnt/c/Users/SoarT/scoop/apps/yarn/current/global/node_modules/.bin:/mnt/c/Users/SoarT/scoop/apps/yarn/current/bin:/mnt/c/Users/SoarT/scoop/apps/vulkan/current/Bin:/mnt/c/Users/SoarT/scoop/apps/vulkan/current/Tools:/mnt/c/Users/SoarT/scoop/apps/nodejs/current/bin:/mnt/c/Users/SoarT/scoop/apps/nodejs/current:/mnt/c/Users/SoarT/scoop/apps/maven/current/bin:/mnt/c/Users/SoarT/go/bin:/mnt/c/Users/SoarT/scoop/apps/vscode/current/bin:/mnt/c/Users/SoarT/scoop/apps/idea-ultimate/current/bin:/mnt/c/Users/SoarT/scoop/apps/yarn/current/Yarn/bin:/mnt/c/Users/SoarT/scoop/apps/miniconda3/current/scripts:/mnt/c/Users/SoarT/scoop/apps/miniconda3/current/Library/bin:/mnt/c/Users/SoarT/scoop/apps/rustup-msvc/current/.cargo/bin:/mnt/c/Users/SoarT/scoop/apps/gcc/current/bin:/mnt/c/Users/SoarT/Miniconda3:/mnt/c/Users/SoarT/Miniconda3/Scripts:/mnt/c/Users/SoarT/scoop/shims:/mnt/c/Users/SoarT/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/SoarT/.dotnet/tools:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2020.3.1/bin:/mnt/c/Users/SoarT/scoop/persist/rustup-msvc/.cargo/bin:/mnt/c/Program Files/Docker/Docker/resources:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/SoarT/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/SoarT/.dotnet/tools:/mnt/c/Users/SoarT/.dotnet/tools:/mnt/c/Users/SoarT/.dotnet/tools:/mnt/c/Users/SoarT/.dotnet/tools:/mnt/c/Users/SoarT/.dotnet/tools:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# environment
+BASH_ENV = /etc/bash.bashrc
+# environment
+VSCODE_LOG_STACK = false
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-6e58636b-b21e-4925-b2bf-ef523ed8c2a1.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# makefile (from 'Makefile', line 3)
+POST_JS_WORKER = build/post-worker.js
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# makefile (from 'Makefile', line 2)
+POST_JS_SYNC = build/post-sync.js
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+PWD = /home/aloento/FFmpeg4JS
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/1064_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+WT_SESSION = 56c21da0-2b4c-47d5-83fb-185750b820fb
+# makefile (from 'Makefile', line 13)
+NEXT_MUXERS = webm ogg null
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/server/remoteExtensionHostProcess
+# environment
+HOME = /home/aloento
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# makefile (from 'Makefile', line 8)
+COMMON_DECODERS = vp8 vp9 h264 hevc av1 vorbis opus mp3 aac pcm_s16le pcm_s24le pcm_s32le pcm_s64le flac jpeg png webp
+# environment
+LOGNAME = aloento
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# makefile (from 'Makefile', line 1)
+PRE_JS = build/pre.js
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# makefile (from 'Makefile', line 15)
+FFMPEG_NEXT_BC = build/ffmpeg-next/ffmpeg.bc
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = aloento
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = Soar-Blade
+# makefile (from 'Makefile', line 78)
+FFMPEG_COMMON_ARGS = --cc=emcc --ranlib=emranlib --enable-cross-compile --target-os=none --arch=x86 --disable-runtime-cpudetect --disable-asm --disable-fast-unaligned --disable-pthreads --disable-w32threads --disable-os2threads --disable-debug --disable-stripping --disable-safe-bitstream-reader --disable-all --enable-ffmpeg --enable-avcodec --enable-avformat --enable-avfilter --enable-swresample --enable-swscale --disable-network --disable-d3d11va --disable-dxva2 --disable-vaapi --disable-vdpau $(addprefix --enable-bsf=,$(COMMON_BSFS)) $(addprefix --enable-decoder=,$(COMMON_DECODERS)) $(addprefix --enable-demuxer=,$(COMMON_DEMUXERS)) --enable-protocol=file $(addprefix --enable-filter=,$(COMMON_FILTERS)) --disable-bzlib --disable-iconv --disable-libxcb --disable-lzma --disable-sdl2 --disable-securetransport --disable-xlib --enable-zlib
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/SoarT/scoop/apps/vscode/1.63.2/data/extensions/ms-vscode-remote.remote-wsl-0.63.13
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# makefile (from 'Makefile', line 16)
+FFMPEG_NEXT_PC_PATH = ../opus/dist/lib/pkgconfig
+# automatic
+*F = $(notdir $*)
+# makefile (from 'Makefile', line 5)
+COMMON_BSFS = vp9_superframe
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 6)
+COMMON_FILTERS = aresample scale crop overlay hstack vstack
+# automatic
++F = $(notdir $+)
+# environment
+WT_PROFILE_ID = {2c4de342-38b7-51cf-b940-2309a097f518}
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 17)
+WEBM_SHARED_DEPS = build/opus/dist/lib/libopus.so build/libvpx/dist/lib/libvpx.so
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+VSCODE_INJECT_NODE_MODULE_LOOKUP_PATH = /home/aloento/.vscode-server/bin/899d46d82c4c95423fb7e10e68eba52050e30ba3/remote/node_modules
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+VSCODE_EXTHOST_WILL_SEND_SOCKET = true
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# makefile (from 'Makefile', line 14)
+NEXT_ENCODERS = libvpx_vp9 libopus vorbis opus
+# variable set hash-table stats:
+# Load=89/1024=9%, Rehash=0, Collisions=4/121=3%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 40788): 12 files, no impossibilities.
+
+# 12 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+all: ffmpeg.js
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+
+clean-opus:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 28):
+	cd build/opus && git clean -xdf
+
+# Not a target:
+build/pre.js:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-04-07 19:03:01.3931569
+#  File has been updated.
+#  Successfully updated.
+
+clean-libvpx:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 30):
+	cd build/libvpx && git clean -xdf
+
+build/opus/configure:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := build/opus/configure
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 35):
+	cd build/opus && ./autogen.sh
+
+clean-js:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	rm -f ffmpeg*.js
+
+ffmpeg.js: build/ffmpeg-next/ffmpeg.bc build/pre.js build/post-worker.js
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  recipe to execute (from 'Makefile', line 155):
+	emcc $(FFMPEG_NEXT_BC) $(WEBM_SHARED_DEPS) \
+		--post-js $(POST_JS_WORKER) \
+		$(EMCC_COMMON_ARGS)
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean-ffmpeg-next:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 32):
+	cd build/ffmpeg-next && git clean -xdf
+
+clean: clean-js clean-opus clean-libvpx clean-ffmpeg-next
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+build/post-worker.js:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+ 
+build/libvpx/dist/lib/libvpx.so:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 55):
+	cd build/libvpx && \
+	git reset --hard && \
+	patch -p1 < ../libvpx-fix-ld.patch && \
+	emconfigure ./configure \
+		--prefix="$$(pwd)/dist" \
+		--target=generic-gnu \
+		--disable-dependency-tracking \
+		--disable-multithread \
+		--disable-runtime-cpu-detect \
+		--enable-shared \
+		--disable-static \
+		\
+		--disable-examples \
+		--disable-docs \
+		--disable-unit-tests \
+		--disable-webm-io \
+		--disable-libyuv \
+		--disable-vp8 \
+		--disable-vp9-decoder \
+		&& \
+	emmake make -j && \
+	emmake make install
+
+build/opus/dist/lib/libopus.so: build/opus/configure
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  recipe to execute (from 'Makefile', line 38):
+	cd build/opus && \
+	emconfigure ./configure \
+		CFLAGS=-O3 \
+		--prefix="$$(pwd)/dist" \
+		--disable-static \
+		--disable-doc \
+		--disable-extra-programs \
+		--disable-asm \
+		--disable-rtcd \
+		--disable-intrinsics \
+		--disable-hardening \
+		--disable-stack-protector \
+		&& \
+	emmake make -j && \
+	emmake make install
+
+build/ffmpeg-next/ffmpeg.bc: build/opus/dist/lib/libopus.so build/libvpx/dist/lib/libvpx.so
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/3=0%
+#  recipe to execute (from 'Makefile', line 121):
+	cd build/ffmpeg-next && \
+	EM_PKG_CONFIG_PATH=$(FFMPEG_NEXT_PC_PATH) emconfigure ./configure \
+		$(FFMPEG_COMMON_ARGS) \
+		$(addprefix --enable-encoder=,$(NEXT_ENCODERS)) \
+		$(addprefix --enable-muxer=,$(NEXT_MUXERS)) \
+		--enable-gpl \
+		--enable-libopus \
+		--enable-libvpx \
+		--extra-cflags="-s USE_ZLIB=1 -I../libvpx/dist/include" \
+		--extra-ldflags="-r -L../libvpx/dist/lib" \
+		&& \
+	emmake make -j EXESUF=.bc
+
+# files hash-table stats:
+# Load=16/1024=2%, Rehash=0, Collisions=0/44=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 29 / storage = 366 B / avg = 12 B
+# current buf: size = 8162 B / used = 366 B / count = 29 / avg = 12 B
+
+# strcache performance: lookups = 55 / hit rate = 47%
+# hash-table stats:
+# Load=29/8192=0%, Rehash=0, Collisions=1/55=2%
+# Finished Make data base on Thu Apr  7 19:04:12 2022
+
+ 
