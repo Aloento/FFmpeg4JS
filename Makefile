@@ -1,6 +1,5 @@
 PRE_JS = build/pre.js
-POST_JS_SYNC = build/post-sync.js
-POST_JS_WORKER = build/post-worker.js
+POST_JS_WORKER = build/post.js
 
 COMMON_BSFS = vp9_superframe
 
@@ -21,10 +20,8 @@ NEXT_MUXERS = webm ogg opus null
 NEXT_ENCODERS = libvpx_vp9 vorbis opus
 
 FFMPEG_NEXT_BC = build/ffmpeg-next/ffmpeg.bc
-# FFMPEG_NEXT_PC_PATH = ../opus/dist/lib/pkgconfig
 
 NEXT_SHARED_DEPS = build/libvpx/dist/lib/libvpx.so
-# build/opus/dist/lib/libopus.so
 
 all: ffmpeg.js
 
@@ -32,32 +29,11 @@ clean: clean-js clean-libvpx clean-ffmpeg-next
 
 clean-js:
 	rm -f src/ffmpeg*.js
-# clean-opus:
-# 	cd build/opus && git clean -xdf
+
 clean-libvpx:
 	cd build/libvpx && git clean -xdf
 clean-ffmpeg-next:
 	cd build/ffmpeg-next && git clean -xdf
-
-# build/opus/configure:
-# 	cd build/opus && ./autogen.sh
-
-# build/opus/dist/lib/libopus.so: build/opus/configure
-# 	cd build/opus && \
-# 	emconfigure ./configure \
-# 		CFLAGS=-O3 \
-# 		--prefix="$$(pwd)/dist" \
-# 		--disable-static \
-# 		--disable-doc \
-# 		--disable-extra-programs \
-# 		--disable-asm \
-# 		--disable-rtcd \
-# 		--disable-intrinsics \
-# 		--disable-hardening \
-# 		--disable-stack-protector \
-# 		&& \
-# 	emmake make -j && \
-# 	emmake make install
 
 build/libvpx/dist/lib/libvpx.so:
 	cd build/libvpx && \
@@ -153,11 +129,6 @@ EMCC_COMMON_ARGS = \
 	-lnodefs.js -lworkerfs.js \
 	--pre-js $(PRE_JS) \
 	-o $@
-
-# ffmpeg-sync.js: $(FFMPEG_NEXT_BC) $(PRE_JS) $(POST_JS_SYNC)
-# 	emcc $(FFMPEG_NEXT_BC) $(NEXT_SHARED_DEPS) \
-# 		--post-js $(POST_JS_SYNC) \
-# 		$(EMCC_COMMON_ARGS)
 
 ffmpeg.js: $(FFMPEG_NEXT_BC) $(PRE_JS) $(POST_JS_WORKER)
 	emcc $(FFMPEG_NEXT_BC) $(NEXT_SHARED_DEPS) \

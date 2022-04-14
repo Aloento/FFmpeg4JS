@@ -1,6 +1,6 @@
 {
   "name": "ffmpeg4js",
-  "version": "5.0.18",
+  "version": "5.0.22",
   "description": "Port of FFmpeg with Emscripten",
   "main": "src/index.ts",
   "scripts": {
@@ -19,7 +19,7 @@
     "ffmpeg",
     "video"
   ],
-  "author": "Aloento & Kagami Hiiragi",
+  "author": "Aloento",
   "license": "LGPL-2.1+",
   "homepage": "https://github.com/Aloento/FFmpeg4JS#readme",
   "devDependencies": {
