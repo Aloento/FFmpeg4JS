@@ -119,18 +119,16 @@ EMCC_COMMON_ARGS = \
 	-Oz \
 	--closure 1 \
 	--memory-init-file 0 \
-	-s WASM=0 \
-	-s WASM_ASYNC_COMPILATION=0 \
 	-s ASSERTIONS=0 \
 	-s EXIT_RUNTIME=1 \
 	-s NODEJS_CATCH_EXIT=0 \
 	-s NODEJS_CATCH_REJECTION=0 \
 	-s ALLOW_MEMORY_GROWTH=1 \
+	-s MODULARIZE=1 \
+	-s EXPORT_ES6=1 \
 	-lnodefs.js -lworkerfs.js \
-	--pre-js $(PRE_JS) \
-	-o $@
+	-o src/$@
 
-ffmpeg.js: $(FFMPEG_NEXT_BC) $(PRE_JS) $(POST_JS_WORKER)
+ffmpeg.js: $(FFMPEG_NEXT_BC)
 	emcc $(FFMPEG_NEXT_BC) $(NEXT_SHARED_DEPS) \
-		--post-js $(POST_JS_WORKER) \
 		$(EMCC_COMMON_ARGS)
