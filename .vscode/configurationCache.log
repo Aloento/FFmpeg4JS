@@ -1,1 +1,0 @@
-{"buildTargets":["all","build/ffmpeg-next/ffmpeg.bc","build/libvpx/dist/lib/libvpx.so","clean","clean-ffmpeg-next","clean-js","clean-libvpx","ffmpeg.js"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
