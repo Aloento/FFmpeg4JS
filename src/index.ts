@@ -1,4 +1,4 @@
-import moduleFactory from "./ffmpeg";
+import factory, { type FFmpegModule } from "./ffmpeg";
 
 function toU8(data: Data) {
   if (Array.isArray(data) || data instanceof ArrayBuffer) {
@@ -21,37 +21,37 @@ interface File {
   name: string;
 }
 
-export default async function FFmpeg4JS(files: File[] = [], moduleOpt: Partial<EmscriptenModule> = {}) {
+export default async function FFmpeg4JS(files: File[] = [], moduleOpt: Partial<FFmpegModule> = {}) {
   let res: File[] = [];
 
   //@ts-expect-error
-  moduleOpt.preRun = () => {
-    FS.mkdir("/ff");
-    FS.chdir("/ff");
+  moduleOpt.preRun = function (mod: FFmpegModule) {
+    mod.FS.mkdir("/ff");
+    mod.FS.chdir("/ff");
 
     for (const file of files) {
       if (file.name.match(/\//))
         throw new Error("Invalid File Name: " + file.name);
 
-      const fd = FS.open(file.name, "w+");
+      const fd = mod.FS.open(file.name, "w+");
       const data = toU8(file.data);
 
-      FS.write(fd, data, 0, data.length);
-      FS.close(fd);
+      mod.FS.write(fd, data, 0, data.length);
+      mod.FS.close(fd);
     }
   };
 
   //@ts-expect-error
-  moduleOpt.postRun = () => {
+  moduleOpt.postRun = function (mod: FFmpegModule) {
     //@ts-expect-error
-    const con = FS.lookupPath("/ff").node.contents;
+    const con = mod.FS.lookupPath("/ff").node.contents;
     const out = Object.values(con) as any[];
     res = out.filter((x) => !files.find(f => f.name === x.name))
       .map((x) => {
-        return { name: x.name, data: toU8(x.contents) } as File
+        return { name: x.name, data: toU8(x.contents) } as File;
       });
   }
 
-  await moduleFactory(moduleOpt);
+  await factory(moduleOpt);
   return res;
 }
