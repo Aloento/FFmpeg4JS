@@ -7,8 +7,9 @@
     "outDir": "./dist",
     "strict": true,
     "allowJs": true,
+    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "src/ffmpeg.js"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }

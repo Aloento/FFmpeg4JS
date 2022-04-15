@@ -1,6 +1,7 @@
 import factory, { type FFmpegModule } from "./ffmpeg";
+import * as Comlink from "comlink";
 
-function toU8(data: Data) {
+function toU8(data: ArrayBuffer | ArrayLike<number>) {
   if (Array.isArray(data) || data instanceof ArrayBuffer) {
     data = new Uint8Array(data);
   } else if (!data) {
@@ -14,15 +15,14 @@ function toU8(data: Data) {
   return data as Uint8Array;
 }
 
-type Data = ArrayLike<number> | { buffer: ArrayBufferLike };
-
 interface File {
-  data: Data;
+  data: ArrayBuffer;
   name: string;
 }
 
 export default async function FFmpeg4JS(files: File[] = [], moduleOpt: Partial<FFmpegModule> = {}) {
   let res: File[] = [];
+  moduleOpt.stdin = function () { }
 
   //@ts-expect-error
   moduleOpt.preRun = function (mod: FFmpegModule) {
@@ -55,3 +55,5 @@ export default async function FFmpeg4JS(files: File[] = [], moduleOpt: Partial<F
   await factory(moduleOpt);
   return res;
 }
+
+Comlink.expose(FFmpeg4JS);
