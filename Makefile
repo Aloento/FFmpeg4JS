@@ -116,8 +116,6 @@ build/ffmpeg-next/ffmpeg.bc: $(NEXT_SHARED_DEPS)
 	emmake make -j EXESUF=.bc
 
 EMCC_COMMON_ARGS = \
-	-Oz \
-	--closure 1 \
 	--memory-init-file 0 \
 	-s ASSERTIONS=0 \
 	-s EXIT_RUNTIME=1 \
@@ -126,7 +124,6 @@ EMCC_COMMON_ARGS = \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s MODULARIZE=1 \
 	-s EXPORT_ES6=1 \
-	-lnodefs.js -lworkerfs.js \
 	-o src/$@
 
 ffmpeg.js: $(FFMPEG_NEXT_BC)

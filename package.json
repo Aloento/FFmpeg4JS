@@ -3,6 +3,7 @@
   "version": "5.0.22",
   "description": "Port of FFmpeg with Emscripten",
   "main": "src/index.ts",
+  "type": "module",
   "scripts": {
     "build": "tsc"
   },

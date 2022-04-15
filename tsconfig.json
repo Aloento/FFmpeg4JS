@@ -7,7 +7,6 @@
     "outDir": "./dist",
     "strict": true,
     "allowJs": true,
-    "checkJs": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["src", "src/ffmpeg.js"],

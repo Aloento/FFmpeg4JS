@@ -46,17 +46,21 @@ function __ffmpegjs(__ffmpegjs_opts) {
       }
     };
   }
+
   Module["stdin"] = Module["stdin"] || function () {};
+
   Module["stdout"] =
     Module["stdout"] ||
     __ffmpegjs_out(function (line) {
       out(line);
     });
+
   Module["stderr"] =
     Module["stderr"] ||
     __ffmpegjs_out(function (line) {
       err(line);
     });
+
   if (typeof process === "object") {
     Module["print"] =
       Module["print"] || process.stdout.write.bind(process.stdout);
