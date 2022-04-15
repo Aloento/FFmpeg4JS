@@ -124,6 +124,7 @@ EMCC_COMMON_ARGS = \
 	-s ALLOW_MEMORY_GROWTH=1 \
 	-s MODULARIZE=1 \
 	-s EXPORT_ES6=1 \
+	-s ENVIRONMENT=web \
 	-o src/$@
 
 ffmpeg.js: $(FFMPEG_NEXT_BC)
