@@ -101,27 +101,27 @@ export async function ToOpus(
 
 ## Tips
 
-- Please give preference to [WebCodecs](https://aloen.to/Program/FrontEnd/WebCodecs/%E8%AE%BA%E4%BD%BF%E7%94%A8WebCodecs%E5%AF%B9%E8%A7%86%E9%A2%91%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86/) before using FFmpeg
+- Please give preference to [WebCodecs](https://web.dev/webcodecs/) before using FFmpeg
 
-- The `new URL` should be determined according to your project environment
+- The `new URL` should be determined according to your project environment  
   `UMI (Webpack)` can be written directly as `new Worker(new URL("ffmpeg4js", import.meta.url));`
 
 - We use [Comlink](https://github.com/GoogleChromeLabs/comlink) to optimize the Worker workflow
 
-- `Comlink.transfer` is not required, but it is better to do so.
-  If `data` is an object such as `Uint8Array` that stores its contents in `buffer`
+- `Comlink.transfer` is not required, but it is better to do so.  
+  If `data` is an object such as `Uint8Array` that stores its contents in `buffer`  
   Please write as `Comlink.transfer([{ name, data }], [data.buffer])`
 
 - Don't forget to close the unused worker: `worker.terminate();` otherwise the memory may not be freed
 
-- Each `FFmpegModule` can only be used once
+- Each `FFmpegModule` can only be used once  
   But you can call `FFmpeg4JS` repeatedly, and each call will generate a new instance of `FFmpeg`
 
-- `FFmpeg4JS` does not escape ts and optimize js files (but does optimize WASM)
+- `FFmpeg4JS` does not escape ts and optimize js files (but does optimize WASM)  
   make sure your environment can handle them
 
-- In `FFmpeg4JS`, you cannot override `stdout` and `stderr`
+- In `FFmpeg4JS`, you cannot override `stdout` and `stderr`  
   Because they have line break recognition problems, pass `print` and `printErr` instead
 
-- If you are not satisfied with the default Wrapper, you can do it yourself
+- If you are not satisfied with the default Wrapper, you can do it yourself  
   `import factory from "ffmpeg4js/src/ffmpeg";`
