@@ -5120,6 +5120,7 @@ function invoke_iiiijj(index,a1,a2,a3,a4,a5,a6,a7) {
 
 // === Auto-generated postamble setup entry stuff ===
 
+Module["UTF8ArrayToString"] = UTF8ArrayToString;
 Module["FS"] = FS;
 
 var calledRun;

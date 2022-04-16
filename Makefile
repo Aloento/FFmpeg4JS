@@ -1,6 +1,3 @@
-PRE_JS = build/pre.js
-POST_JS_WORKER = build/post.js
-
 COMMON_BSFS = vp9_superframe
 
 COMMON_FILTERS = aresample scale crop overlay hstack vstack
@@ -127,7 +124,7 @@ EMCC_COMMON_ARGS = \
 	-s MODULARIZE=1 \
 	-s EXPORT_ES6=1 \
 	-s ENVIRONMENT=worker \
-	-s EXPORTED_RUNTIME_METHODS=[FS] \
+	-s EXPORTED_RUNTIME_METHODS=[FS,UTF8ArrayToString] \
 	-o src/$@
 
 ffmpeg.js: $(FFMPEG_NEXT_BC)
