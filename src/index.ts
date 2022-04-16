@@ -27,9 +27,9 @@ interface Output {
 
 export default async function FFmpeg4JS(files: Input[] = [], moduleOpt: Partial<FFmpegModule> = {}) {
   let res: Output[] = [];
-  moduleOpt.stdin = function () { }
-  moduleOpt.print = console.debug;
-  moduleOpt.printErr = console.info;
+  moduleOpt.stdin ??= function () { }
+  moduleOpt.print ??= console.debug;
+  moduleOpt.printErr ??= console.info;
 
   //@ts-expect-error
   moduleOpt.preRun = function (mod: FFmpegModule) {
