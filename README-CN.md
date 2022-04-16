@@ -100,23 +100,24 @@ export async function ToOpus(
 
 - 在使用 FFmpeg 之前，请优先考虑使用 [WebCodecs](https://aloen.to/Program/FrontEnd/WebCodecs/%E8%AE%BA%E4%BD%BF%E7%94%A8WebCodecs%E5%AF%B9%E8%A7%86%E9%A2%91%E8%BF%9B%E8%A1%8C%E5%A4%84%E7%90%86/)
 
-- `new URL` 部分请根据你的项目环境确定具体值
+- `new URL` 部分请根据你的项目环境确定具体值  
   `UMI (Webpack)` 可以直接写成 `new Worker(new URL("ffmpeg4js", import.meta.url));`
 
 - 我们使用 [Comlink](https://github.com/GoogleChromeLabs/comlink) 来优化 Worker 工作流
 
-- `Comlink.transfer` 不是必须的，但最好这么做。
-  如果 `data` 是 `Uint8Array` 等以 `buffer` 储存内容的对象
+- `Comlink.transfer` 不是必须的，但最好这么做  
+  如果 `data` 是 `Uint8Array` 等以 `buffer` 储存内容的对象  
   请写成 `Comlink.transfer([{ name, data }], [data.buffer])`
 
 - 不要忘记关闭不用的 Worker：`worker.terminate();` 否则内存有可能不会释放
 
-- 每一个 `FFmpegModule` 只能使用一次
-  但是你可以重复调用 `FFmpeg4JS`，每次调用会生成新的 `FFmpeg` 实例
+- 每一个 `FFmpegModule` 只能使用一次  
+  但是你可以重复调用 `FFmpeg4JS`，每次调用会生成新的 `FFmpegModule` 实例
 
 - `FFmpeg4JS` 并没有转义 ts 和优化 js 文件（但是优化了 WASM），请确保你的环境能够处理它们
 
-- 在 `FFmpeg4JS` 中，你不能重写 `stdout` 和 `stderr`
+- 在 `FFmpeg4JS` 中，你不能重写 `stdout` 和 `stderr`  
   因为它们有换行符识别问题，请传递 `print` 和 `printErr`
 
-- 如果你对默认的 Wrapper 不满意，你可以自行 `import factory from "ffmpeg4js/src/ffmpeg";`
+- 如果你对默认的 Wrapper 不满意，你可以自行  
+  `import factory from "ffmpeg4js/src/ffmpeg";`

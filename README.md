@@ -1,6 +1,6 @@
 # [FFmpeg4JS](https://www.npmjs.com/package/ffmpeg4js)
 
-[中文](https://github.com/Aloento/MusiLand/blob/master/README-CN.md)
+[中文](https://github.com/Aloento/FFmpeg4JS/blob/master/README-CN.md)
 
 ## Builds
 
@@ -115,7 +115,7 @@ export async function ToOpus(
 - Don't forget to close the unused worker: `worker.terminate();` otherwise the memory may not be freed
 
 - Each `FFmpegModule` can only be used once  
-  But you can call `FFmpeg4JS` repeatedly, and each call will generate a new instance of `FFmpeg`
+  But you can call `FFmpeg4JS` repeatedly, and each call will generate a new instance of `FFmpegModule`
 
 - `FFmpeg4JS` does not escape ts and optimize js files (but does optimize WASM)  
   make sure your environment can handle them
